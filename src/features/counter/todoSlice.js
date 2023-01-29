@@ -16,7 +16,7 @@ export const todoSlice = createSlice({
 });
 
 // Exporting action creators for every reducer function
-export const {} = todoSlice.actions;
+export const { addItem, removeItem } = todoSlice.actions;
 
 // Exporting reducer
 export default todoSlice.reducer;
