@@ -3,13 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 export const todoSlice = createSlice({
   name: "todo",
   initialState: {
-    list: [],
+    list: [
+      { task: "clean apartment", done: true },
+      { task: "cook food", done: true },
+      { task: "apply for jobs", done: false },
+    ],
   },
   reducers: {
     addItem: (state, action) => {
       state.list.push(action.payload);
     },
     removeItem: (state, action) => {
+      console.log(action.payload);
       state.list.splice(action.payload, 1);
     },
   },
