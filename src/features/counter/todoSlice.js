@@ -11,7 +11,7 @@ export const todoSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.list.push(action.payload);
+      state.list.push({ task: action.payload, done: false });
     },
     removeItem: (state, action) => {
       console.log(action.payload);
