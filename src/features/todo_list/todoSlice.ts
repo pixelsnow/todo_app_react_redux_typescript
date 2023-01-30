@@ -42,6 +42,12 @@ export const todoSlice = createSlice({
       console.log(action.payload);
       state.list[action.payload].done = !state.list[action.payload].done;
     },
+    editTask: (
+      state,
+      action: PayloadAction<{ index: number; task: string }>
+    ) => {
+      state.list[action.payload.index].task = action.payload.task;
+    },
   },
 });
 
@@ -53,6 +59,7 @@ export const {
   removeDone,
   markAllDone,
   toggleDone,
+  editTask,
 } = todoSlice.actions;
 
 // Exporting reducer
