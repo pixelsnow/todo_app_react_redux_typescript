@@ -39,6 +39,7 @@ export const todoSlice = createSlice({
       state.list.forEach((item) => (item.done = false));
     },
     toggleDone: (state, action: PayloadAction<number>) => {
+      console.log(action.payload);
       state.list[action.payload].done = !state.list[action.payload].done;
     },
   },

@@ -33,10 +33,10 @@ const Item = (props: ItemProps) => {
         onChange={onToggleDone}
         type="checkbox"
         name="done"
-        id="done"
+        id={"done" + props.index}
         checked={props.data.done}
       />
-      <label htmlFor="done">
+      <label htmlFor={"done" + props.index}>
         <span className={props.data.done ? classes.done : classes.not_done}>
           {props.data.task}
         </span>
