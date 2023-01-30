@@ -17,17 +17,25 @@ type ItemProps = {
 };
 
 const Item = (props: ItemProps) => {
+  /* const [checked, setChecked] = useState("") */
   const dispatch = useDispatch();
   const list = useSelector(selectTodos);
 
   const deleteItem = () => dispatch(removeItem(props.index));
 
+  // Index seems undefined here?
   const onToggleDone = () => dispatch(toggleDone(props.index));
 
   return (
     <div>
       <h4>List item</h4>
-      <input onChange={onToggleDone} type="checkbox" name="done" id="done" />
+      <input
+        onChange={onToggleDone}
+        type="checkbox"
+        name="done"
+        id="done"
+        checked={props.data.done}
+      />
       <label htmlFor="done">
         <span className={props.data.done ? classes.done : classes.not_done}>
           {props.data.task}
