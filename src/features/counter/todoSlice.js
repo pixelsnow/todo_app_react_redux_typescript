@@ -20,12 +20,15 @@ export const todoSlice = createSlice({
     removeAll: (state) => {
       state.list = [];
     },
-    markAllDone: (state) => {},
+    markAllDone: (state) => {
+      state.list.forEach((item) => (item.done = true));
+    },
   },
 });
 
 // Exporting action creators for every reducer function
-export const { addItem, removeItem, removeAll } = todoSlice.actions;
+export const { addItem, removeItem, removeAll, markAllDone } =
+  todoSlice.actions;
 
 // Exporting reducer
 export default todoSlice.reducer;

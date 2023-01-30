@@ -1,18 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { removeAll } from "./features/counter/todoSlice";
+import { removeAll, markAllDone } from "./features/counter/todoSlice";
 
 const Controls = () => {
   const dispatch = useDispatch();
 
-  const markAllDone = () => {};
+  const markAll = () => {
+    dispatch(markAllDone());
+  };
   const clearAll = () => {
     dispatch(removeAll());
   };
   return (
     <div>
-      <button onClick={markAllDone}>Mark all done</button>
+      <button onClick={markAll}>Mark all done</button>
       <button onClick={clearAll}>Clear all</button>
     </div>
   );
