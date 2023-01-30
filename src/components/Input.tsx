@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { addItem } from "./features/counter/todoSlice";
+import { addItem } from "../features/todo_list/todoSlice";
 
 const Input = () => {
   const [newItem, setNewItem] = useState("");
   const dispatch = useDispatch();
 
-  const changeHandler = (e) => {
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setNewItem(e.target.value);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (newItem.length) dispatch(addItem(newItem));
     setNewItem("");

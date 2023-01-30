@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { removeAll, markAllDone } from "./features/counter/todoSlice";
+import { removeAll, markAllDone } from "../features/todo_list/todoSlice";
 
 const Controls = () => {
   const dispatch = useDispatch();

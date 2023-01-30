@@ -1,20 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+export interface ItemData {
+  task: string;
+  done: boolean;
+}
+
+interface TodoState {
+  list: ItemData[];
+}
+
+const initialState: TodoState = {
+  list: [
+    { task: "clean apartment", done: true },
+    { task: "cook food", done: true },
+    { task: "apply for jobs", done: false },
+  ],
+};
 
 export const todoSlice = createSlice({
   name: "todo",
-  initialState: {
-    list: [
-      { task: "clean apartment", done: true },
-      { task: "cook food", done: true },
-      { task: "apply for jobs", done: false },
-    ],
-  },
+  initialState,
   reducers: {
-    addItem: (state, action) => {
+    addItem: (state, action: PayloadAction<string>) => {
       state.list.push({ task: action.payload, done: false });
     },
-    removeItem: (state, action) => {
-      console.log(action.payload);
+    removeItem: (state, action: PayloadAction<number>) => {
       state.list.splice(action.payload, 1);
     },
     removeAll: (state) => {
