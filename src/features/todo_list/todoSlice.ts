@@ -11,8 +11,8 @@ interface TodoState {
 
 const initialState: TodoState = {
   list: [
-    { task: "clean apartment", done: true },
-    { task: "cook food", done: true },
+    { task: "clean apartment", done: false },
+    { task: "cook food", done: false },
     { task: "apply for jobs", done: false },
   ],
 };
@@ -30,15 +30,27 @@ export const todoSlice = createSlice({
     removeAll: (state) => {
       state.list = [];
     },
+    removeDone: (state) => {
+      state.list = state.list.filter((item) => item.done === false);
+    },
     markAllDone: (state) => {
-      state.list.forEach((item) => (item.done = true));
+      state.list.forEach((item) => (item.done = false));
+    },
+    toggleDone: (state, action: PayloadAction<number>) => {
+      state.list[action.payload].done = !state.list[action.payload].done;
     },
   },
 });
 
 // Exporting action creators for every reducer function
-export const { addItem, removeItem, removeAll, markAllDone } =
-  todoSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  removeAll,
+  removeDone,
+  markAllDone,
+  toggleDone,
+} = todoSlice.actions;
 
 // Exporting reducer
 export default todoSlice.reducer;
