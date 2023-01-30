@@ -11,7 +11,7 @@ import classes from "./List.module.css";
 const List = () => {
   const list = useSelector((state) => state.todoList.list);
   return (
-    <div>
+    <div className={classes.list_container}>
       <h3>List will be here</h3>
       <Input />
       <Controls />
