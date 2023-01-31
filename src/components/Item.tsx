@@ -9,6 +9,7 @@ import {
 import { selectTodos } from "../app/store";
 
 import classes from "./Item.module.css";
+import EditItem from "./EditItem";
 
 interface ItemData {
   task: string;
@@ -21,10 +22,8 @@ type ItemProps = {
 };
 
 const Item = (props: ItemProps) => {
-  const [editValue, setEditValue] = useState("");
   const [editing, setEditing] = useState(false);
   const dispatch = useDispatch();
-  const list = useSelector(selectTodos);
 
   const deleteItem = () => dispatch(removeItem(props.index));
 
@@ -56,6 +55,7 @@ const Item = (props: ItemProps) => {
 
       {editing ? (
         <>
+          {/* <EditItem onButtonClick={editDone} /> */}
           <input type="text" value={props.data.task} onChange={handleEdit} />
           <button onClick={editDone}>Done</button>
         </>
