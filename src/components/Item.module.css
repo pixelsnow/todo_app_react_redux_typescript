@@ -1,7 +1,56 @@
+.item {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  align-items: center;
+}
+
+.item form {
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+}
+
+.item button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.item button span {
+  font-size: 1rem;
+}
+
+.item form input {
+  width: 97%;
+  padding: 0.5rem;
+}
+
 .done {
   text-decoration: line-through;
 }
 
 .not_done {
   text-decoration: none;
+}
+.checkbox_container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.checkbox_container input {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.task_container {
+  display: grid;
+  grid-template-columns: 9fr 1fr;
 }

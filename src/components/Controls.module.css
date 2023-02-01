@@ -1,0 +1,31 @@
+.buttons {
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  padding: 0.8rem 0;
+}
+
+.buttons button:nth-child(1) {
+  width: 32%;
+  background-color: #222;
+}
+.buttons button:nth-child(2) {
+  width: 32%;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+
+.buttons button:nth-child(3) {
+  width: 32%;
+  background-color: #ffcccc;
+
+  color: black;
+}
+
+.buttons button:hover {
+  background-color: #444;
+}

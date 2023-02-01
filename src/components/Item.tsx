@@ -1,13 +1,11 @@
 import React, { ChangeEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   removeItem,
   toggleDone,
   editTask,
 } from "../features/todo_list/todoSlice";
-import { selectTodos } from "../app/store";
-import EditItem from "./EditItem";
 
 import classes from "./Item.module.css";
 
@@ -44,38 +42,46 @@ const Item = (props: ItemProps) => {
   const onToggleDone = () => dispatch(toggleDone(props.index));
 
   return (
-    <div>
-      <input
-        onChange={onToggleDone}
-        type="checkbox"
-        name="done"
-        id={"done" + props.index}
-        checked={props.data.done}
-      />
+    <div className={classes.item}>
+      <div className={classes.checkbox_container}>
+        <input
+          onChange={onToggleDone}
+          type="checkbox"
+          name="done"
+          id={"done" + props.index}
+          checked={props.data.done}
+        />
+      </div>
       {editing ? (
-        <>
-          <form onSubmit={editDone}>
+        <form onSubmit={editDone}>
+          <div className={classes.input_container}>
             <input type="text" value={props.data.task} onChange={handleEdit} />
+          </div>
+          <div className={classes.button_container}>
             <button type="submit">
               <span className="material-symbols-outlined">done</span>
             </button>
-          </form>
-        </>
+          </div>
+        </form>
       ) : (
-        <>
+        <div className={classes.task_container}>
           <label htmlFor={"done" + props.index}>
-            <span className={props.data.done ? classes.done : classes.not_done}>
+            <p className={props.data.done ? classes.done : classes.not_done}>
               {props.data.task}
-            </span>
+            </p>
           </label>
-          <button onClick={editItem}>
-            <span className="material-symbols-outlined">edit</span>
-          </button>
-        </>
+          <div className={classes.button_container}>
+            <button onClick={editItem}>
+              <span className="material-symbols-outlined">edit</span>
+            </button>
+          </div>
+        </div>
       )}
-      <button onClick={deleteItem}>
-        <span className="material-symbols-outlined">close</span>
-      </button>
+      <div>
+        <button onClick={deleteItem}>
+          <span className="material-symbols-outlined">close</span>
+        </button>
+      </div>
     </div>
   );
 };

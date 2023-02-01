@@ -7,6 +7,8 @@ import {
   markAllDone,
 } from "../features/todo_list/todoSlice";
 
+import classes from "./Controls.module.css";
+
 const Controls = () => {
   const dispatch = useDispatch();
 
@@ -23,10 +25,10 @@ const Controls = () => {
   };
 
   return (
-    <div>
+    <div className={classes.buttons}>
       <button onClick={markAll}>Mark all done</button>
-      <button onClick={clearDone}>Clear done</button>
       <button onClick={clearAll}>Clear all</button>
+      <button onClick={clearDone}>Clear done</button>
     </div>
   );
 };
