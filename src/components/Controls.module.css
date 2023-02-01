@@ -26,6 +26,14 @@
   color: black;
 }
 
-.buttons button:hover {
+.buttons button:nth-child(1):hover {
   background-color: #444;
+}
+
+.buttons button:nth-child(2):hover {
+  background-color: #eee;
+}
+
+.buttons button:nth-child(3):hover {
+  background-color: #e8bdbd;
 }

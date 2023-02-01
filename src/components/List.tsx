@@ -13,7 +13,7 @@ const List = () => {
   return (
     <div className={classes.list_wrapper}>
       <div className={classes.list_container}>
-        <h3>List will be here</h3>
+        <h3>To-do list</h3>
         <Input />
 
         {list.map((item, index) => (
