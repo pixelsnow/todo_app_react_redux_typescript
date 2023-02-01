@@ -11,11 +11,11 @@ interface TodoState {
 
 const initialState: TodoState = {
   list: [
-    { task: "clean apartment", done: false },
+    /*     { task: "clean apartment", done: false },
     { task: "cook food", done: true },
     { task: "apply for jobs", done: false },
     { task: "make tea", done: false },
-    { task: "go to sleep on time", done: true },
+    { task: "go to sleep on time", done: true }, */
   ],
 };
 

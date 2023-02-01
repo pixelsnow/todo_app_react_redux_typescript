@@ -11,13 +11,15 @@ import classes from "./List.module.css";
 const List = () => {
   const list = useSelector(selectTodos);
   return (
-    <div className={classes.list_container}>
-      <h3>List will be here</h3>
-      <Input />
-      <Controls />
-      {list.map((item, index) => (
-        <Item data={item} index={index} key={index} />
-      ))}
+    <div className={classes.list_wrapper}>
+      <div className={classes.list_container}>
+        <h3>List will be here</h3>
+        <Input />
+        <Controls />
+        {list.map((item, index) => (
+          <Item data={item} index={index} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

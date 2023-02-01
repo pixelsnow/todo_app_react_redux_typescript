@@ -1,5 +1,24 @@
 .App {
-  background-color: #222;
-  color: #ddd;
+  background: linear-gradient(to bottom, #ffcccc, #94d6cd);
+  color: #222;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+input {
+  border: 1px solid #222;
+  border-radius: 0.3rem;
+  font-size: inherit;
+  font-family: inherit;
 }

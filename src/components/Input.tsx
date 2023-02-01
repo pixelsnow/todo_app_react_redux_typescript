@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { addItem } from "../features/todo_list/todoSlice";
 
+import classes from "./Input.module.css";
+
 const Input = () => {
   const [newItem, setNewItem] = useState("");
   const dispatch = useDispatch();
@@ -18,12 +20,12 @@ const Input = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <input type="text" onChange={changeHandler} value={newItem} />
-        <button type="submit">+</button>
-      </form>
-    </div>
+    <form className={classes.form} onSubmit={submitHandler}>
+      <input type="text" onChange={changeHandler} value={newItem} />
+      <button type="submit">
+        <span className="material-symbols-outlined">add</span>
+      </button>
+    </form>
   );
 };
 

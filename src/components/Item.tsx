@@ -7,9 +7,9 @@ import {
   editTask,
 } from "../features/todo_list/todoSlice";
 import { selectTodos } from "../app/store";
+import EditItem from "./EditItem";
 
 import classes from "./Item.module.css";
-import EditItem from "./EditItem";
 
 interface ItemData {
   task: string;
@@ -25,7 +25,9 @@ const Item = (props: ItemProps) => {
   const [editing, setEditing] = useState(false);
   const dispatch = useDispatch();
 
-  const deleteItem = () => dispatch(removeItem(props.index));
+  const deleteItem = () => {
+    dispatch(removeItem(props.index));
+  };
 
   const editItem = () => {
     setEditing(true);
@@ -39,12 +41,10 @@ const Item = (props: ItemProps) => {
     setEditing(false);
   };
 
-  // Index seems undefined here?
   const onToggleDone = () => dispatch(toggleDone(props.index));
 
   return (
     <div>
-      <h4>List item</h4>
       <input
         onChange={onToggleDone}
         type="checkbox"
@@ -52,24 +52,30 @@ const Item = (props: ItemProps) => {
         id={"done" + props.index}
         checked={props.data.done}
       />
-
       {editing ? (
         <>
-          {/* <EditItem onButtonClick={editDone} /> */}
-          <input type="text" value={props.data.task} onChange={handleEdit} />
-          <button onClick={editDone}>Done</button>
+          <form onSubmit={editDone}>
+            <input type="text" value={props.data.task} onChange={handleEdit} />
+            <button type="submit">
+              <span className="material-symbols-outlined">done</span>
+            </button>
+          </form>
         </>
       ) : (
-        <label htmlFor={"done" + props.index}>
-          <span className={props.data.done ? classes.done : classes.not_done}>
-            {props.data.task}
-          </span>
-        </label>
+        <>
+          <label htmlFor={"done" + props.index}>
+            <span className={props.data.done ? classes.done : classes.not_done}>
+              {props.data.task}
+            </span>
+          </label>
+          <button onClick={editItem}>
+            <span className="material-symbols-outlined">edit</span>
+          </button>
+        </>
       )}
-
-      {editing ? <></> : <button onClick={editItem}>Edit</button>}
-
-      <button onClick={deleteItem}>X</button>
+      <button onClick={deleteItem}>
+        <span className="material-symbols-outlined">close</span>
+      </button>
     </div>
   );
 };
