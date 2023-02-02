@@ -63,8 +63,8 @@ const Item = (props: ItemProps) => {
         <>
           <form onSubmit={editDone}>
             <input type="text" value={editedItem} onChange={handleEdit} />
-            <div className={classes.edit_button_container}>
-              <button type="submit">
+            <div className={classes.done_button_container}>
+              <button className={classes.button_done} type="submit">
                 <span className="material-symbols-outlined">done</span>
               </button>
             </div>

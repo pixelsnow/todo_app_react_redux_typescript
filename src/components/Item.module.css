@@ -17,12 +17,6 @@
   grid-template-columns: 9fr 1fr;
 }
 
-.edit_button_container {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-}
-
 .item button {
   display: flex;
   justify-content: center;
@@ -30,6 +24,11 @@
   border-radius: 50%;
   height: 1.7rem;
   width: 1.7rem;
+  background-color: var(--light-gray);
+}
+
+.item button:hover {
+  background-color: #999;
 }
 
 .item button span {
@@ -38,6 +37,7 @@
 
 .item form input {
   padding: 0.5rem;
+  width: 98%;
 }
 
 .done {
@@ -56,6 +56,7 @@
 .checkbox_container input {
   width: 1.3rem;
   height: 1.3rem;
+  cursor: pointer;
 }
 
 .task_container {
@@ -66,9 +67,30 @@
 .task_container label {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .close_button_container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+}
+
+.done_button_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.done_button_container button {
+  background-color: var(--dark-gray);
+}
+
+.done_button_container button:hover {
+  background-color: #333;
+}
+
+.edit_button_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

@@ -10,24 +10,24 @@
 
 .buttons button:nth-child(1) {
   width: 32%;
-  background-color: #222;
+  background-color: var(--light-gray);
 }
 .buttons button:nth-child(2) {
   width: 32%;
   background-color: white;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--dark-gray);
+  color: var(--dark-gray);
 }
 
 .buttons button:nth-child(3) {
   width: 32%;
-  background-color: #ffcccc;
+  background-color: var(--pink);
 
-  color: black;
+  color: var(--dark-gray);
 }
 
 .buttons button:nth-child(1):hover {
-  background-color: #444;
+  background-color: #999;
 }
 
 .buttons button:nth-child(2):hover {

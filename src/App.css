@@ -1,6 +1,12 @@
+:root {
+  --light-gray: #888;
+  --dark-gray: #222;
+  --pink: #ffcccc;
+}
+
 .App {
   background: linear-gradient(to bottom, #ffcccc, #94d6cd);
-  color: #222;
+  color: var(--dark-gray);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,7 +14,7 @@
 }
 
 button {
-  background-color: #222;
+  background-color: var(--dark-gray);
   color: white;
   border: none;
   border-radius: 0.3rem;
@@ -18,8 +24,13 @@ button {
 }
 
 input {
-  border: 1px solid #222;
+  border: 1px solid var(--dark-gray);
   border-radius: 0.3rem;
   font-size: inherit;
   font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  background-color: #f1f1f1;
 }
