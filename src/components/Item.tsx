@@ -21,6 +21,7 @@ type ItemProps = {
 
 const Item = (props: ItemProps) => {
   const [editing, setEditing] = useState(false);
+  const [editedItem, setEditedItem] = useState("");
   const dispatch = useDispatch();
 
   const deleteItem = () => {
@@ -29,13 +30,19 @@ const Item = (props: ItemProps) => {
 
   const editItem = () => {
     setEditing(true);
+    setEditedItem(props.data.task);
   };
 
   const handleEdit = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(editTask({ index: props.index, task: e.target.value }));
+    setEditedItem(e.target.value);
   };
 
   const editDone = () => {
+    dispatch(editTask({ index: props.index, task: editedItem }));
+    setEditing(false);
+  };
+
+  const cancelEdit = () => {
     setEditing(false);
   };
 
@@ -53,33 +60,42 @@ const Item = (props: ItemProps) => {
         />
       </div>
       {editing ? (
-        <form onSubmit={editDone}>
-          <input type="text" value={props.data.task} onChange={handleEdit} />
-          <div className={classes.edit_button_container}>
-            <button type="submit">
-              <span className="material-symbols-outlined">done</span>
+        <>
+          <form onSubmit={editDone}>
+            <input type="text" value={editedItem} onChange={handleEdit} />
+            <div className={classes.edit_button_container}>
+              <button type="submit">
+                <span className="material-symbols-outlined">done</span>
+              </button>
+            </div>
+          </form>
+          <div className={classes.close_button_container}>
+            <button onClick={cancelEdit}>
+              <span className="material-symbols-outlined">close</span>
             </button>
           </div>
-        </form>
+        </>
       ) : (
-        <div className={classes.task_container}>
-          <label htmlFor={"done" + props.index}>
-            <p className={props.data.done ? classes.done : classes.not_done}>
-              {props.data.task}
-            </p>
-          </label>
-          <div className={classes.edit_button_container}>
-            <button onClick={editItem}>
-              <span className="material-symbols-outlined">edit</span>
+        <>
+          <div className={classes.task_container}>
+            <label htmlFor={"done" + props.index}>
+              <p className={props.data.done ? classes.done : classes.not_done}>
+                {props.data.task}
+              </p>
+            </label>
+            <div className={classes.edit_button_container}>
+              <button onClick={editItem}>
+                <span className="material-symbols-outlined">edit</span>
+              </button>
+            </div>
+          </div>
+          <div className={classes.close_button_container}>
+            <button onClick={deleteItem}>
+              <span className="material-symbols-outlined">delete</span>
             </button>
           </div>
-        </div>
+        </>
       )}
-      <div className={classes.close_button_container}>
-        <button onClick={deleteItem}>
-          <span className="material-symbols-outlined">close</span>
-        </button>
-      </div>
     </div>
   );
 };
