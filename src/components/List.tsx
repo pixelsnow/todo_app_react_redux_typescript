@@ -15,7 +15,6 @@ const List = () => {
       <div className={classes.list_container}>
         <h3>To-do list</h3>
         <Input />
-
         {list.map((item, index) => (
           <Item data={item} index={index} key={index} />
         ))}

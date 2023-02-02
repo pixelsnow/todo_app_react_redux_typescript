@@ -54,10 +54,8 @@ const Item = (props: ItemProps) => {
       </div>
       {editing ? (
         <form onSubmit={editDone}>
-          <div className={classes.input_container}>
-            <input type="text" value={props.data.task} onChange={handleEdit} />
-          </div>
-          <div className={classes.button_container}>
+          <input type="text" value={props.data.task} onChange={handleEdit} />
+          <div className={classes.edit_button_container}>
             <button type="submit">
               <span className="material-symbols-outlined">done</span>
             </button>
@@ -70,14 +68,14 @@ const Item = (props: ItemProps) => {
               {props.data.task}
             </p>
           </label>
-          <div className={classes.button_container}>
+          <div className={classes.edit_button_container}>
             <button onClick={editItem}>
               <span className="material-symbols-outlined">edit</span>
             </button>
           </div>
         </div>
       )}
-      <div>
+      <div className={classes.close_button_container}>
         <button onClick={deleteItem}>
           <span className="material-symbols-outlined">close</span>
         </button>

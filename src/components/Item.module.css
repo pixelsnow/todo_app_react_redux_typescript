@@ -2,6 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
   align-items: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .item form {
@@ -9,9 +17,10 @@
   grid-template-columns: 9fr 1fr;
 }
 
-.button_container {
+.edit_button_container {
   display: flex;
   align-items: center;
+  justify-content: end;
 }
 
 .item button {
@@ -28,7 +37,6 @@
 }
 
 .item form input {
-  width: 97%;
   padding: 0.5rem;
 }
 
@@ -53,4 +61,14 @@
 .task_container {
   display: grid;
   grid-template-columns: 9fr 1fr;
+}
+
+.task_container label {
+  display: flex;
+  align-items: center;
+}
+
+.close_button_container {
+  display: flex;
+  justify-content: end;
 }
