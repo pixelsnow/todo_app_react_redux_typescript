@@ -70,7 +70,7 @@ const Item = (props: ItemProps) => {
             </div>
           </form>
           <div className={classes.close_button_container}>
-            <button onClick={cancelEdit}>
+            <button type="button" onClick={cancelEdit}>
               <span className="material-symbols-outlined">close</span>
             </button>
           </div>
@@ -84,13 +84,13 @@ const Item = (props: ItemProps) => {
               </p>
             </label>
             <div className={classes.edit_button_container}>
-              <button onClick={editItem}>
+              <button type="button" onClick={editItem}>
                 <span className="material-symbols-outlined">edit</span>
               </button>
             </div>
           </div>
           <div className={classes.close_button_container}>
-            <button onClick={deleteItem}>
+            <button type="button" onClick={deleteItem}>
               <span className="material-symbols-outlined">delete</span>
             </button>
           </div>

@@ -36,7 +36,7 @@ export const todoSlice = createSlice({
       state.list = state.list.filter((item) => item.done === false);
     },
     markAllDone: (state) => {
-      state.list.forEach((item) => (item.done = false));
+      state.list.forEach((item) => (item.done = true));
     },
     toggleDone: (state, action: PayloadAction<number>) => {
       console.log(action.payload);
