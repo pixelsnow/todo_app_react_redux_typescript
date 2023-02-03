@@ -1,6 +1,6 @@
 # To-do app
 
-You know what it does.
+![screenshot](screenshot.png)
 
 ## Technologies used
 
