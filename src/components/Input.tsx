@@ -5,7 +5,7 @@ import { addItem } from "../features/todo_list/todoSlice";
 
 import classes from "./Input.module.css";
 
-const Input = () => {
+const Input: React.FC = () => {
   const [newItem, setNewItem] = useState("");
   const dispatch = useDispatch();
 

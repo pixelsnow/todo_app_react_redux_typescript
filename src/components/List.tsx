@@ -7,7 +7,7 @@ import { selectTodos } from "../app/store";
 
 import classes from "./List.module.css";
 
-const List = () => {
+const List: React.FC = () => {
   const list = useSelector(selectTodos);
   return (
     <div className={classes.list_wrapper}>

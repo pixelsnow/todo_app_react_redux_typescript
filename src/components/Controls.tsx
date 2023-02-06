@@ -9,7 +9,7 @@ import {
 
 import classes from "./Controls.module.css";
 
-const Controls = () => {
+const Controls: React.FC = () => {
   const dispatch = useDispatch();
 
   const markAll = () => {

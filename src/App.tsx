@@ -5,13 +5,13 @@ import Footer from "./components/Footer";
 
 import "./App.css";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <List />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

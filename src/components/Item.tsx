@@ -19,7 +19,7 @@ type ItemProps = {
   index: number;
 };
 
-const Item = (props: ItemProps) => {
+const Item: React.FC<ItemProps> = (props) => {
   const [editing, setEditing] = useState(false);
   const [editedItem, setEditedItem] = useState("");
   const dispatch = useDispatch();
